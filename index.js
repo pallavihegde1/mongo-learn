@@ -42,7 +42,9 @@ getCourses()
 
 async function getFilteredCourses() {
   const courses = await Course.find({author: 'mish', isPublished: true})
+  const courseByPrice = await Course.find({price: {$gte: 10, lte: 20}})
   console.log('filtered Courses', courses)
+  console.log('Courses by Price', courses)
 }
 
 getFilteredCourses()
